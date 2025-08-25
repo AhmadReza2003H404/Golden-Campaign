@@ -1,0 +1,397 @@
+@font-face {
+  font-family: iransans;
+  src: url(IRANSansXV.ttf);
+}
+
+
+.backgroundImg {
+  background-repeat: no-repeat;
+  background-size: 100 100%;
+  background-size: cover;
+  background-image: url('Slide\ 16_9\ -\ 14.svg');
+}
+
+.blurBackgroundImg {
+  background-repeat: no-repeat;
+  background-size: 100 100%;
+  background-size: cover;
+  background-image: url('Slide\ 16_9\ -\ 16.svg');
+}
+
+/* Base + font */
+.lottery-input {
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-family: iransans, sans-serif;
+  padding: 5rem 1.5rem 3rem;
+
+}
+
+.lottery-winner {
+  display: none;
+  font-family: iransans, sans-serif;
+}
+
+.lottery-inner {
+  text-align: center;
+  width: 100%;
+}
+
+/* Logo */
+.logo {
+  height: auto;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin: 0 auto;
+  display: block;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* two columns: label / value */
+  width: 100%;
+  /* control width of everything */
+  margin: 0 auto;
+  /* center whole block */
+  gap: 1rem 2rem;
+  /* row and column gaps */
+  text-align: start;
+  padding-bottom: 4rem;
+}
+
+.headerTitle {
+  grid-column: 1 / -1;
+  /* make h1 span both columns */
+  font-weight: 900;
+  font-size: 80px;
+  margin: 0 auto 1rem auto;
+  text-align: center;
+  /* still centered inside grid */
+}
+
+.headerTitle span {
+  display: inline-block;
+  color: #fff;
+  outline: 6px solid var(--pink);
+  outline-offset: 6px;
+  border-radius: 10px;
+}
+
+.stats {
+  display: contents;
+  /* let children flow into grid */
+}
+
+.stats-label {
+  font-size: 40px;
+  font-weight: 500;
+  margin: 0;
+  text-align: start;
+}
+
+.stats-value {
+  font-size: 40px;
+  font-weight: 500;
+  margin: 0;
+  text-align: end;
+}
+
+
+/* Three rounded white boxes */
+.prize-cards {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.card {
+  width: 8.5rem;
+  height: 7.5rem;
+  background: #fff;
+  border-radius: 44px;
+
+  display: flex;
+  /* center text inside */
+  justify-content: center;
+  align-items: center;
+
+  font-size: 80px;
+  /* big number */
+  font-weight: 900;
+  text-align: center;
+  color: #000;
+  padding-top: 1rem;
+  border: 7px solid #fff;
+  /* black outline like first box in image */
+  caret-color: transparent;
+}
+
+.enterListener {
+  opacity: 0;
+}
+
+.card:focus {
+  outline: none;
+  /* removes default blue glow */
+  border-color: #fff;
+  /* keep your black border */
+}
+
+.card:not(:empty) {
+  border: 7px solid #000;
+  /* black outline like first box in image */
+}
+
+.winner {
+  display: none;
+}
+
+/* Responsive tweaks */
+@media (max-width: 720px) {
+  .stats {
+    grid-template-columns: 1fr;
+    gap: .75rem;
+  }
+
+  .card {
+    width: 86px;
+    height: 86px;
+    border-radius: 22px;
+  }
+}
+
+.pill-container {
+  display: flex;
+  align-items: top;
+  justify-content: space-between !important;
+  direction: rtl;
+  padding-top: 0.25rem;
+  .top-pill {
+    padding-bottom: 0.25rem;
+  }
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+}
+
+/* the orange capsule */
+.pill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5rem;
+  background: #FF8C22;
+  color: #1D1D1B;
+  font-weight: 600;
+  font-size: 30px;
+  border-radius: 999px;
+  /* fully rounded ends */
+  padding: 12px 22px;
+  box-sizing: border-box;
+  width: 57.75rem;
+  height: 4.625rem;
+  gap: 1rem;
+}
+
+.winner-pill {
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  color: #1D1D1B;
+  font-weight: 600;
+  font-size: 30px;
+  border-radius: 999px;
+  /* fully rounded ends */
+  padding: 12px 22px;
+  box-sizing: border-box;
+  width: 57.75rem;
+  height: 3.75rem;
+  margin-top: 0.25rem;
+  .code {
+    font-weight: 500;
+    font-size: 20px;
+    color: #fff;
+    background-color: #1D1D1B;
+    border-radius: 999px;
+    margin-left: 1rem;
+    width: 5.5rem;
+    height: 2.25rem;
+    text-align: center;
+    align-items: center;
+    padding-top: 0.5rem;
+  }
+
+  .mobile {
+    font-weight: 400;
+    font-size: 16px;
+    padding-right: 1rem;
+    text-align: left;
+    width: 6rem;
+    direction: ltr;
+  }
+
+  .name {
+    padding-right: 1rem;
+    width: 16rem;
+    font-weight: 900;
+    font-size: 16px;
+    margin: 0;
+  }
+}
+
+/* make each label take half width and center its text */
+.pill>div {
+  flex: 1 1 50%;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.d-flex {
+  display: flex;
+  align-items: center;
+}
+
+/* Add this to your CSS */
+@keyframes fadeInScale {
+  from { opacity: 0; transform: translate(-50%, -50%) scale(0.96); }
+  to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+.stage {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* base position */
+  width: 79.125rem;
+  height: 38.25rem;
+  background: #fff;
+  border: 10px solid #1D1D1B;
+  border-radius: 40px;
+  padding: 2.2rem 2.6rem;
+  display: flex;            /* you keep toggling this */
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.stage[style*="display: block"],        /* if you toggle inline style */
+.stage.showing {                        /* or if you ever add a class */
+  display: block;
+  animation: fadeInScale 400ms ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stage[style*="display: block"],
+  .stage.showing {
+    animation: none;
+  }
+}
+
+
+/* ticket centered on top */
+.ticket {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 1.2rem !important;
+  background: #111;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 142px;
+  padding: 12px 36px;
+  font-size: 65px;
+  width: 328px;
+  height: 96px;
+}
+
+/* two rows, two columns: [phone | info] */
+.grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  row-gap: 4rem;
+  /* space between the two rows */
+  column-gap: 4rem;
+  /* space between left phone and right info */
+  align-items: center;
+  /* phone aligns with the middle of the info block */
+}
+
+/* left column (phones) */
+.phone {
+  font-weight: 700;
+  font-size: 48px;
+  color: #1a1a1a;
+  margin-top: 5rem;
+  text-align: left;
+}
+
+/* right column (title + name aligned to the right) */
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ff7a0a;
+  font-weight: 600;
+  font-size: 40px;
+}
+
+.title .dash {
+  width: 52px;
+  height: 10px;
+  background: #ff7a0a;
+  border-radius: 4px;
+  /* in RTL the dash should appear on the left of the title text */
+  order: 2;
+}
+
+.title .title-text {
+  order: 1
+}
+
+.name {
+  text-align: right;
+  font-weight: 700;
+  font-size: 48px;
+  color: #1a1a1a;
+  margin-top: .6rem;
+}
+
+
+.card--enter {
+  opacity: 0;
+  transform: translateY(40px) scale(.96) rotateX(8deg);
+}
+.card--enter-active {
+  opacity: 1;
+  transform: translateY(0) scale(1) rotateX(0);
+}
+
+.card--fly {
+  position: fixed;
+  margin: 0;
+  pointer-events: none;
+  box-shadow: 0 8px 24px rgba(0,0,0,.18);
+  border-radius: 280px;
+  width: 57.75rem;
+  height: 3.75rem;
+}
+
+.winner-pill {
+  transition:
+    opacity .3s cubic-bezier(.2,.8,.2,1),
+    transform .3s cubic-bezier(.2,.8,.2,1);
+}
+.winner-pill--hidden { visibility: hidden; opacity: 0; transform: translateY(8px); }
+.winner-pill--show   { visibility: visible; opacity: 1; transform: translateY(0); } */
+/* Motion tokens

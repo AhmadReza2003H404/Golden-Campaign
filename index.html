@@ -1,0 +1,115 @@
+<html lang="fa">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Camoaign</title>
+	<link rel="stylesheet" href="style.css" />
+</head>
+
+<body id="body" class="backgroundImg">
+	<div id="winner" class="lottery-winner">
+		<div class="pill-container top-pill">
+			<div class="pill">
+				<div>مشخصات دعوت‌کننده</div>
+				<div>مشخصات دعوت‌شونده</div>
+			</div>
+			<div class="pill">
+				<div>مشخصات دعوت‌کننده</div>
+				<div>مشخصات دعوت‌شونده</div>
+			</div>
+		</div>
+		<div class="pill-container">
+			<div id="rightList" class="rightList">
+			</div>
+			<div id="leftList" class="leftList">
+			</div>
+		</div>
+		<main id="stage" class="stage">
+			<section class="stack" id="stack"></section>
+		</main>
+	</div>
+	<di id="input" class="lottery-input" dir="rtl">
+		<div class="lottery-first">
+			<img class="logo" src="BankinoLogo _ Black With Slogan.png" alt="بانکینو">
+
+			<div class="layout">
+				<h1 class="headerTitle">
+					<span>جشنواره دعوت طلایی</span>
+				</h1>
+
+				<div id="membersCount" class="stats">
+					<p class="stats-label">تعداد شرکت‌کننده:</p>
+				</div>
+
+				<div id="membersInterval" class="stats">
+					<p class="stats-label">بازه قرعه‌کشی:</p>
+				</div>
+			</div>
+
+			<div id="chanceInput" class="prize-cards">
+				<div contenteditable="true"
+					oninput="convertInputToPersianNumerals(this); jumpToPrev(this); limitToOneDigit(this)" type="text"
+					maxlength="1" class="card input"></div>
+				<div contenteditable="true"
+					oninput="convertInputToPersianNumerals(this); jumpToPrev(this); limitToOneDigit(this)" type="text"
+					maxlength="1" class="card input"></div>
+				<div contenteditable="true"
+					oninput="convertInputToPersianNumerals(this); jumpToPrev(this); limitToOneDigit(this)"
+					class="card cardFirst input"></div>
+			</div>
+			<div id="enterListener" contenteditable="true" type="text" class="enterListener input"></div>
+
+		</div>
+		</section>
+
+</body>
+<script src="input.js"></script>
+<script src="winner.js"></script>
+<script>
+	let winners = [];
+	let winners_size = 0;
+	let winner = {};
+	let showwedWinners = {};
+	let fixedNumber = "000";
+	const WINNERS_COUNT = 30;
+	const persianNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+
+	function toPersianNumeral(digit) {
+		return persianNumbers[digit];
+	}
+
+	function toPersianNumberWholeNumber(number) {
+		return number
+			.toString()
+			.replace(/\d/g, x => persianNumbers[x]);
+	}
+
+	function hideDiv(divId) {
+		document.getElementById(divId).style.display = 'none';
+	}
+
+	function showDiv(divId) {
+		document.getElementById(divId).style.display = 'block';
+	}
+
+	function enableClick(divId) {
+		document.getElementById(divId).style.pointerEvents = 'all';
+	}
+
+	function disableClick(divId) {
+		document.getElementById(divId).style.pointerEvents = 'none';
+		document.getElementById(divId).style.background = '#B2B5BB';
+	}
+
+	// Listen for Enter key anywhere on the page
+	document.addEventListener("keydown", function (event) {
+		if (event.key === "Enter") {
+			nextWinner();
+		}
+	});
+
+</script>
+
+</html>
