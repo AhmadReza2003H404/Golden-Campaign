@@ -1,6 +1,7 @@
 let shown = 0;
 let isShowing = false;
 let showBackGround = true;
+let isWinnersFileDownloaded = false;
 const stackEl = document.getElementById('stack');
 const stage = document.getElementById('stage');
 const rightList = document.getElementById('rightList');
@@ -90,7 +91,6 @@ function nextWinner() {
     sendWinnerToList(winner, 'left');
     shown++;
     if (typeof hideDiv === 'function') hideDiv('stage');
-    return;
   } else if (shown < WINNERS_COUNT) {
     
     const index = shown * Math.floor(winners_size / WINNERS_COUNT) + Number(fixedNumber);
@@ -102,6 +102,7 @@ function nextWinner() {
       shown++;
       winner = winners[index];
       winner.id = index;
+      showwedWinners.push(winner);
 
       const card = createCard(winner);
       stackEl.innerHTML = "";
@@ -120,6 +121,15 @@ function nextWinner() {
 
 
     // updateStackVisual();
+  } else {
+    if(!isWinnersFileDownloaded){
+      isWinnersFileDownloaded = true;
+      var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(showwedWinners));
+      var dlAnchorElem = document.getElementById('downloadAnchorElem');
+      dlAnchorElem.setAttribute("href",     dataStr     );
+      dlAnchorElem.setAttribute("download", "winners.json");
+      dlAnchorElem.click();
+    }
   }
 }
 
