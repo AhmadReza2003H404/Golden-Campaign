@@ -101,7 +101,7 @@ function nextWinner() {
     if(showBackGround) {
       shown++;
       winner = winners[index];
-      winner.id = index;
+      winner.id = index + 1;
       showwedWinners.push(winner);
 
       const card = createCard(winner);

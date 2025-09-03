@@ -59,7 +59,7 @@ function confirm() {
     });
     //results could be used
     reverseFixedNumber = convertPersianNumeralsToEnglish(results);
-    fixedNumber = reverseFixedNumber.split("").reverse().join("") % Math.floor(winners_size / WINNERS_COUNT);
+    fixedNumber = (reverseFixedNumber.split("").reverse().join("") - 1) % Math.floor(winners_size / WINNERS_COUNT);
     hideDiv('input');
     showDiv('winner');
     currentIndex = Number(fixedNumber);
@@ -69,11 +69,11 @@ function confirm() {
 function addMemberDetails() {
     const el = document.createElement('p');
     el.className = 'stats-value';
-    el.innerHTML = `${converNumberToPersianNumber(winners_size)} - ۱`;
+    el.innerHTML = `${converNumberToPersianNumber(winners_size)}`;
 
     const el2 = document.createElement('p');
     el2.className = 'stats-value';
-    el2.innerHTML = `${converNumberToPersianNumber(Math.floor(winners_size / WINNERS_COUNT) - 1)} - ۱`;
+    el2.innerHTML = `${converNumberToPersianNumber(Math.floor(winners_size / WINNERS_COUNT))} - ۱`;
 
     const membersCount = document.getElementById('membersCount');
     membersCount.appendChild(el);
